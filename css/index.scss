@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+  margin: 2em auto;
+  width: 800px;
+  text-align: center;
+}
+
+button {
+  background: #07D;
+  border: 0;
+  padding: 1em 2em;
+  font-size: 2em;
+  color: #EEE;
+  transition: transform 200ms, box-shadow 200ms;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+}

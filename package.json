@@ -1,0 +1,31 @@
+{
+  "name": "speed-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "coffee server.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LukeGT/speed-test.git"
+  },
+  "keywords": [
+    "speed",
+    "test",
+    "speedtest"
+  ],
+  "author": "Luke Tsekouras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukeGT/speed-test/issues"
+  },
+  "homepage": "https://github.com/LukeGT/speed-test#readme",
+  "dependencies": {
+    "coffee-middleware": "^0.3.0",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "node-sass-middleware": "^0.9.8"
+  }
+}
