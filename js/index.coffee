@@ -9,7 +9,7 @@ get_chunk = (size, callbacks) ->
   xhr.open 'GET', 'start?size=' + size
   xhr.send()
 
-run_test = (done) ->
+run_test = (update, done) ->
   
   start = Date.now()
   size = START_SIZE
@@ -37,14 +37,32 @@ run_test = (done) ->
           last_time = time
           last_loaded = event.loaded
 
-        load: done speeds
+          update speeds
+
+        load: ->
+          update speeds
+          done()
       }
 
   loop_func()
 
+average = (nums) -> (nums.reduce (a, b) -> a + b) / nums.length
+
+deviation = (nums) ->
+  mean = average(nums)
+  return Math.sqrt average nums.map((x) -> mean - x).map((x) -> x*x)
 
 $ ->
 
+  running = false
+
   $('#start').on 'click', ->
+    return if running
+    running = true
+    $('#start').text('Running...')
     run_test (speeds) ->
-      console.log 'done'
+      $('#result').text Math.floor average(speeds) * 8
+      $('#deviation').text Math.floor deviation(speeds) * 8
+    , ->
+      running = false
+      $('#start').text('Start')
