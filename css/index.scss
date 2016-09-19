@@ -42,3 +42,20 @@ button {
 #result {
   font-weight: bold;
 }
+
+#histogram {
+
+  display: flex;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  align-items: flex-end;
+  justify-content: center;
+  z-index: -1000;
+
+  span {
+    background-color: #07D;
+    transition: width 100ms, height 100ms;
+  }
+}
