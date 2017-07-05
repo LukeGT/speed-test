@@ -89,7 +89,7 @@ $ ->
       $('#result').text Math.floor average(speeds) * 8
       $('#deviation').text Math.floor deviation(speeds) * 8
 
-      keys = (+key for key of buckets)
+      keys = (+key for key, count of buckets when count > 1)
 
       if keys.length
 
@@ -109,11 +109,11 @@ $ ->
           $histogram.append empty_span
           ++a
 
-        spans = $histogram.find('span')
         width = Math.min MAX_BAR_WIDTH, $('html').width() / keys.length
+        spans = $histogram.find('span').width(width)
         setTimeout ->
-          for bucket, size of buckets
-            $(spans[bucket - min]).height(size * 4).width(width)
+          for bucket, size of buckets when size > 1
+            $(spans[bucket - min]).height(size * 4)
 
         min_bucket = min
         max_bucket = max
