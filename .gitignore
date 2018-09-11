@@ -2,3 +2,4 @@
 *.css
 *.swp
 node_modules
+*.log
